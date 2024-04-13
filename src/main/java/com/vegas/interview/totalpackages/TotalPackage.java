@@ -3,7 +3,6 @@ package com.vegas.interview.totalpackages;
 import com.vegas.interview.products.Product;
 import com.vegas.interview.products.ProductType;
 
-import javax.swing.*;
 import java.math.BigDecimal;
 import java.util.List;
 
