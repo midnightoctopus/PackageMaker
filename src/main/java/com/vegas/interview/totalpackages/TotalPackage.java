@@ -3,6 +3,7 @@ package com.vegas.interview.totalpackages;
 import com.vegas.interview.products.Product;
 import com.vegas.interview.products.ProductType;
 
+import javax.swing.*;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -66,19 +67,11 @@ public class TotalPackage implements Comparable<TotalPackage> {
         if (isSortByTotalPackage) {
             result = totalPrice.compareTo(totalPackage.totalPrice);
         }
-        if (result == 0 && !products.isEmpty() && !totalPackage.products.isEmpty()) {
-           result = products.get(0).compareTo(totalPackage.products.get(0));
-           if (result == 0 && products.size() > 1 && totalPackage.products.size() > 1) {
-               result = products.get(1).compareTo(totalPackage.products.get(1));
-               if (result == 0 && products.size() > 2 && totalPackage.products.size() > 2) {
-                   result = products.get(2).compareTo(totalPackage.products.get(2));
-                   if (result == 0 && products.size() > 3 && totalPackage.products.size() > 3) {
-                       result = products.get(3).compareTo(totalPackage.products.get(3));
-                   }
-               }
-           }
+        for (int i = 0; i < products.size(); i++) {
+            if (result == 0 && totalPackage.products.size() > i) {
+                result = products.get(i).compareTo(totalPackage.products.get(i));
+            }
         }
-
         return result;
     }
 }
